@@ -21,21 +21,29 @@ def index():
             return render_template('index.html',error=error)
         else:
             error=f"Here's the weather info for {city_name.upper()}"
-            return callIndex(response,city_name,error=error)
+             city_name=city_name.upper()
+            temp=response['main']['temp']
+            mintemp=response['main']['temp_min']
+            maxtemp=response['main']['temp_max']
+            humidity=response['main']['humidity']
+            windspeed=response['wind']['speed']
+            weather=response['weather'][0]['description']
+            icon = response['weather'][0]['icon']
+            return render_template('index.html',error=error,temp=temp,min_temp=mintemp,max_temp=maxtemp,weather=weather,humdt=humidity,windS=windspeed,icon=icon,city_name=city_name)
     else:
         return render_template('index.html',error='Welcome to Weather App')
 
-def callIndex(response,city_name,error):
-    city_name=city_name.upper()
-    temp=response['main']['temp']
-    mintemp=response['main']['temp_min']
-    maxtemp=response['main']['temp_max']
-    humidity=response['main']['humidity']
-    windspeed=response['wind']['speed']
-    weather=response['weather'][0]['description']
-    icon = response['weather'][0]['icon']
-    # print(f'Temp - {temp}')
-    return render_template('index.html',error=error,temp=temp,min_temp=mintemp,max_temp=maxtemp,weather=weather,humdt=humidity,windS=windspeed,icon=icon,city_name=city_name)
+# def callIndex(response,city_name,error):
+#     city_name=city_name.upper()
+#     temp=response['main']['temp']
+#     mintemp=response['main']['temp_min']
+#     maxtemp=response['main']['temp_max']
+#     humidity=response['main']['humidity']
+#     windspeed=response['wind']['speed']
+#     weather=response['weather'][0]['description']
+#     icon = response['weather'][0]['icon']
+#     # print(f'Temp - {temp}')
+#     return render_template('index.html',error=error,temp=temp,min_temp=mintemp,max_temp=maxtemp,weather=weather,humdt=humidity,windS=windspeed,icon=icon,city_name=city_name)
 
 if __name__ == '__main__':
     app.run(debug=True)
