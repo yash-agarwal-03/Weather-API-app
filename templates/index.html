@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script type="module" src="static/script.js"></script>
+</head>
+<body>
+    <div class="alertbox" id="alertbox">
+        <div class="alert" id="alert">
+            {{error}}
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="title">Weather App</h1>
+        <div class="subtitle">
+            <p class="start"><i>Using Flask</i></p>
+            <p class="end"><i>-by Yash</i></p>
+        </div>
+
+        <div class="search">
+            <form action="" method="post">
+                    <input type="text" placeholder="Enter city name" name="city_name">
+                <button id="btn"><img src="\static\search.png" alt="Search"></button>
+            </form>
+            </div>
+            {% if min_temp and max_temp%}
+                <div class="weather-info">
+                    <img src="https://openweathermap.org/img/wn/{{icon}}.png" alt="">
+                    <div class="weather">{{weather}}</div>
+                    <div class="temp">{{temp}}&deg;C</div>
+                    <div class="location">{{city_name}}</div>
+                    <div class="details">
+                        
+                        <div class="grid-item">
+                            <span class="dets">Min. Temp</span>
+                            <p id="dets1">
+                                {{min_temp}}
+                            </p>
+                        </div>
+                        <div class="grid-item">
+                            <span class="dets">Max. Temp</span>
+                            <p id="dets2">{{max_temp}}</p>
+                        </div>
+                        <div class="grid-item">
+                            <span class="dets">Humidity</span>
+                            <p id="dets1">
+                                {{humdt}}%
+                            </p>
+                        </div>
+                        <div class="grid-item">
+                            <span class="dets">Wind Speed</span>
+                            <p id="dets2">{{windS}} m/s</p>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+        </div>
+    
+</body>
+</html>
