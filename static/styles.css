@@ -101,12 +101,9 @@ button img{
 }
 .subtitle{
     margin-top: 0.5px;
-    display: flex;
-    justify-content: space-between;
 }
 .subtitle p{
-    max-width: fit-content;
-    text-align: center;
+    text-align: right;
 }
 .weather-box {
     background-color: #90f1ef;

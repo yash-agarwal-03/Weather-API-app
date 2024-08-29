@@ -17,7 +17,7 @@
     <div class="container">
         <h1 class="title">Weather App</h1>
         <div class="subtitle">
-            <p class="start"><i>Using Flask</i></p>
+            <!-- <p class="start"><i>Using Flask</i></p> -->
             <p class="end"><i>-by Yash</i></p>
         </div>
 
@@ -27,7 +27,7 @@
                 <button id="btn"><img src="\static\search.png" alt="Search"></button>
             </form>
             </div>
-            {% if min_temp and max_temp%}
+            {% if min_temp%}
                 <div class="weather-info">
                     <img src="https://openweathermap.org/img/wn/{{icon}}.png" alt="">
                     <div class="weather">{{weather}}</div>
