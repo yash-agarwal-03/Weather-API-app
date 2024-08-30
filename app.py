@@ -3,8 +3,7 @@ import requests
 import os
 app=Flask(__name__)
 
-api_key='32def3db4fdf50e4f0476d13907b132f'
-api_keyforecast='9da8cd4fe452f2145d82b02c899552a6'
+api_key='your api key'
 app.secret_key = os.urandom(24)
 print(f"Your secret key - {app.secret_key}")
 
